@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const [search, setSearch] = useState('');
@@ -17,11 +19,19 @@ const Header = () => {
 
   return (
     <div className='header-container'>
-      <h2 className='header-logo'>T-Shirt House</h2>
+      <Link className='header-logo' to='/'>
+        T-Shirt House
+      </Link>
       <ul className='header-list'>
-        <li>Men</li>
-        <li>Women</li>
-        <li>About</li>
+        <Link to='men'>
+          <li>Men</li>
+        </Link>
+        <Link to='women'>
+          <li>Women</li>
+        </Link>
+        <Link to='about'>
+          <li>About</li>
+        </Link>
       </ul>
       <div className='basket'>
         <FontAwesomeIcon icon={faCartShopping} />
@@ -33,7 +43,10 @@ const Header = () => {
             value={search}
             onChange={onSearch}
           />
-          <input type='submit' value='search' />
+          <button className='btn btn-search' type='submit'>
+            {' '}
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
         </form>
       </div>
     </div>
