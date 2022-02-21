@@ -1,0 +1,21 @@
+@import '../../styles/settings.scss';
+
+.minicart {
+  position: absolute;
+  min-width: 435px;
+  border: 1px solid $light-dark;
+  transform: translate(-72%);
+  top: 40px;
+  z-index: 1;
+  background-color: $light;
+  &::before {
+    content: '';
+    border: 1px solid $light-dark;
+    width: 130px;
+    position: absolute;
+    height: 49px;
+    right: -1px;
+    top: -48px;
+    border-bottom: 3px solid $light;
+  }
+}

@@ -4,9 +4,11 @@ import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import MiniCart from '../MiniCart/MiniCart';
 
 const Header = () => {
   const [search, setSearch] = useState('');
+  const [isShown, setIsShown] = useState(false);
 
   const onSearch = (e) => {
     setSearch(e.target.value);
@@ -35,7 +37,8 @@ const Header = () => {
       </ul>
       <div className='basket'>
         <FontAwesomeIcon icon={faCartShopping} />
-        <p>Basket (4)</p>
+        <p onMouseEnter={() => setIsShown(true)}>Basket (4)</p>
+        {isShown && <MiniCart setShown={setIsShown} />}
         <form onSubmit={onFormSubmit}>
           <input
             type='text'
