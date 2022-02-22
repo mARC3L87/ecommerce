@@ -9,7 +9,7 @@ const products = {
     {
       id: 1,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/GREEBEtyR9Y',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'men',
@@ -19,7 +19,7 @@ const products = {
     {
       id: 2,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/PDZAMYvduVk',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'men',
@@ -29,7 +29,7 @@ const products = {
     {
       id: 3,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/jX2cntCbrAo',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'women',
@@ -39,7 +39,7 @@ const products = {
     {
       id: 4,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/dG4Eb_oC5iM',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'women',
@@ -49,7 +49,7 @@ const products = {
     {
       id: 5,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/243Q39DzM3M',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'women',
@@ -59,7 +59,7 @@ const products = {
     {
       id: 6,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/sMn0sxR8v2E',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'men',
@@ -69,7 +69,7 @@ const products = {
     {
       id: 7,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/21TsyXG9Rgs',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'women',
@@ -79,7 +79,7 @@ const products = {
     {
       id: 8,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/8UOwLzt4RoI',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'women',
@@ -89,7 +89,7 @@ const products = {
     {
       id: 9,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/LYEnS2xB9bQ',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'men',
@@ -99,7 +99,7 @@ const products = {
     {
       id: 10,
       product_name: 'T-shirt',
-      image: 'https://unsplash.com/photos/MnUzbIS_tMg',
+      image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
       category: 'men',

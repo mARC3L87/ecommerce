@@ -12,7 +12,7 @@ const MiniCartItem = () => {
       </div>
       <div className='price-details'>
         <p className='price'>$ 20,50</p>
-        <p>X</p>
+        <div className='close'></div>
       </div>
     </div>
   );

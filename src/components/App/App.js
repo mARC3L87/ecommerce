@@ -7,6 +7,7 @@ import Home from '../Home/Home';
 import MenProducts from '../MenProducts/MenProducts';
 import WomenProducts from '../WomenProducts/WomenProducts';
 import About from '../About/About';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
