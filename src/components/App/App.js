@@ -7,6 +7,8 @@ import Home from '../Home/Home';
 import MenProducts from '../MenProducts/MenProducts';
 import WomenProducts from '../WomenProducts/WomenProducts';
 import About from '../About/About';
+import ProductDetails from '../ProductDetails/ProductDetails';
+import Products from '../Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
@@ -16,9 +18,13 @@ const App = () => {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='men' element={<MenProducts />} />
-          <Route path='women' element={<WomenProducts />} />
-          <Route path='about' element={<About />} />
+          <Route index element={<Home />} />
+          <Route path='products' element={<Products />}>
+            <Route path='men' element={<MenProducts />} />
+            <Route path='women' element={<WomenProducts />} />
+            <Route path='about' element={<About />} />
+            <Route path=':id' element={<ProductDetails />} />
+          </Route>
         </Routes>
       </Router>
     </MainLayout>

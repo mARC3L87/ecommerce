@@ -11,9 +11,15 @@ const Home = ({ products }) => {
     <div className='home-container'>
       <h1>T-Shirts</h1>
       <Container>
-        <Row xs='auto' sm={2} md={3} xxl={4}>
+        <Row xs='auto' sm={2} md={3} lg={4} xl={5} xxl={6}>
           {products.items.map((item) => {
-            return <ProductItem item={item} key={item.id} />;
+            return (
+              <ProductItem
+                item={item}
+                key={item.id}
+                currency={products.currency}
+              />
+            );
           })}
         </Row>
       </Container>

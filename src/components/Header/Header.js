@@ -25,13 +25,13 @@ const Header = () => {
         T-Shirt House
       </Link>
       <ul className='header-list'>
-        <Link to='men'>
+        <Link to='products/men'>
           <li>Men</li>
         </Link>
-        <Link to='women'>
+        <Link to='products/women'>
           <li>Women</li>
         </Link>
-        <Link to='about'>
+        <Link to='products/about'>
           <li>About</li>
         </Link>
       </ul>
