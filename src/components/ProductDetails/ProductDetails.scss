@@ -1,0 +1,72 @@
+@import '../../styles/settings.scss';
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0 0;
+  .detail-img-box {
+    width: 600px;
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  .detail-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0 0;
+    .detail-name {
+      font-family: $text-font;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $dark;
+      margin: 0;
+    }
+    .detail-id,
+    .detail-price,
+    .detail-description {
+      margin: 0;
+      font-family: $text-font;
+      font-size: 16px;
+      color: $light-dark;
+    }
+    .detail-price {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+  }
+  .detail-sizes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    .size {
+      font-family: $text-font;
+      font-weight: bold;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      li {
+        margin: 0 10px;
+        border: 1px solid $light-dark;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+      }
+    }
+  }
+  .btn-add {
+    width: 100%;
+    background-color: $orange;
+    border: none;
+    font-family: $text-font;
+    color: $light;
+    height: 40px;
+    max-width: 150px;
+  }
+}
