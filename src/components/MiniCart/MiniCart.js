@@ -10,16 +10,6 @@ const MiniCart = ({ setShown }) => {
       <MiniCartItem />
       <MiniCartItem />
       <MiniCartCheck />
-      {/* <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem />
-      <MiniCartItem /> */}
     </div>
   );
 };

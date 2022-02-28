@@ -1,0 +1,21 @@
+@import '../../styles/settings.scss';
+.shopping-container {
+  margin: 50px 0 0;
+  h1 {
+    text-align: center;
+    margin: 0 0 40px;
+  }
+  .col-1 {
+    display: flex;
+    width: 100%;
+    & :first-child {
+      margin: 0 30px 20px 0;
+      width: 100px;
+    }
+  }
+  .col-2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
