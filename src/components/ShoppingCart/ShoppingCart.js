@@ -11,7 +11,9 @@ const ShoppingCart = ({ products }) => {
     <div className='shopping-container'>
       <h1>Your Shopping Bag</h1>
       <Container>
-        <Row>
+        <Row
+          style={{ borderBottom: '1px solid #606060', marginBottom: '20px' }}
+        >
           <Col sm={6}>
             <div className='col-1'>
               <p>Product</p>
@@ -20,10 +22,9 @@ const ShoppingCart = ({ products }) => {
           </Col>
           <Col sm={6}>
             <div className='col-2'>
-              <p>Color</p>
               <p>Size</p>
               <p>Qty</p>
-              <p>Amount</p>
+              <p className='col-2-price'>Price</p>
               <p>Delete</p>
             </div>
           </Col>

@@ -8,6 +8,9 @@
   .col-1 {
     display: flex;
     width: 100%;
+    p {
+      font-family: $text-font;
+    }
     & :first-child {
       margin: 0 30px 20px 0;
       width: 100px;
@@ -17,5 +20,11 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    p {
+      font-family: $text-font;
+    }
+    .col-2-price {
+      transform: translateX(30px);
+    }
   }
 }

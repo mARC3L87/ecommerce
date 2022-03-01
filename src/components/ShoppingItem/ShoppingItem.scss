@@ -1,10 +1,8 @@
 @import '../../styles/settings.scss';
-
-.row {
+.border-bottom {
   border-bottom: 1px solid $light-dark;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
-
 .shopping-img-box {
   max-width: 100px;
   max-height: 100px;
@@ -17,4 +15,57 @@
 .shopping-description {
   display: flex;
   flex-direction: column;
+  & :first-child {
+    font-weight: bold;
+  }
+}
+.qty-box {
+  display: flex;
+  input[type='text'] {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    outline: none;
+    border: 1px solid $light-dark;
+    border-left: none;
+    border-right: none;
+  }
+  .btn {
+    width: 30px;
+    height: 30px;
+    background-color: $orange;
+    padding: 0;
+    border: none;
+    color: $light;
+  }
+  .btn-minus {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .btn-plus {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+.close {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 2px;
+    background-color: $dark;
+    transform: rotate(45deg);
+  }
+  &::before {
+    content: ' ';
+    height: 18px;
+    width: 2px;
+    position: absolute;
+    background-color: $dark;
+    transform: rotate(135deg);
+  }
 }
