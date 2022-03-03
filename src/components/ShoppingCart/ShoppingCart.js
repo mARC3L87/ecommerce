@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './ShoppingCart.scss';
 import ShoppingItem from '../ShoppingItem/ShoppingItem';
+import ShippingWrapper from '../ShippingWrapper/ShippingWrapper';
 import Shipping from '../Shipping/Shipping';
+import Payment from '../Payment/Payment';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -35,7 +37,12 @@ const ShoppingCart = ({ products }) => {
             return <ShoppingItem key={product.id} product={product} />;
           })}
         </Row>
-        <Shipping />
+        <ShippingWrapper>
+          <Shipping />
+        </ShippingWrapper>
+        <ShippingWrapper>
+          <Payment />
+        </ShippingWrapper>
       </Container>
     </div>
   );
