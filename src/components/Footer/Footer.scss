@@ -1,0 +1,45 @@
+@import '../../styles/settings.scss';
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
+  .footer-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-left: 1px solid $light-dark;
+    width: 280px;
+    padding-left: 20px;
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      li {
+        font-size: 12px;
+        font-family: $text-font;
+        margin: 5px 0;
+      }
+    }
+  }
+  & :first-child {
+    border: none;
+  }
+  & :last-child {
+    ul {
+      display: flex;
+      li {
+        margin-right: 25px;
+        font-size: 15px;
+        border: 1px solid $light-dark;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+  }
+}
