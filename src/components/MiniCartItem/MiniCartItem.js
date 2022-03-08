@@ -1,17 +1,18 @@
 import React from 'react';
 import './MiniCartItem.scss';
 
-const MiniCartItem = () => {
+const MiniCartItem = ({ item }) => {
+  console.log(item);
   return (
     <div className='mini-cart-item'>
       <div className='img-cart-details'>
         <div className='img-cart-box'>
-          <img src='https://picsum.photos/id/1/100/100' alt='imag' />
+          <img src={item.image} alt='imag' />
         </div>
-        <p>T-shirt</p>
+        <p>{item.product_name}</p>
       </div>
       <div className='price-details'>
-        <p className='price'>$ 20,50</p>
+        <p className='price'>{item.price.current_price}</p>
         <div className='close'></div>
       </div>
     </div>

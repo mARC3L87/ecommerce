@@ -1,12 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addToCart } from '../../redux/actions/productActions';
 import './ProductDetails.scss';
 
-const ProductDetails = ({ products, filterProduct }) => {
+const ProductDetails = ({ products, filterProduct, addTo }) => {
   console.log(products);
   let param = useParams();
   const product = filterProduct(products.items, param.id);
+
   return (
     <div className='detail-container'>
       <div className='detail-img-box'>
@@ -26,7 +28,9 @@ const ProductDetails = ({ products, filterProduct }) => {
           })}
         </ul>
       </div>
-      <button className='btn btn-add'>ADD TO CART</button>
+      <button onClick={() => addTo(product.id)} className='btn btn-add'>
+        ADD TO CART
+      </button>
     </div>
   );
 };
@@ -38,6 +42,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   filterProduct: (products, filterId) =>
     products.find((product) => product.id === parseInt(filterId)),
+  addTo: (id) => dispatch(addToCart(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
