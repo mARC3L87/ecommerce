@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +8,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../MiniCart/MiniCart';
 
-const Header = () => {
+const Header = ({ cart }) => {
   const [search, setSearch] = useState('');
   const [isShown, setIsShown] = useState(false);
 
@@ -37,7 +39,7 @@ const Header = () => {
       </ul>
       <div className='basket'>
         <FontAwesomeIcon icon={faCartShopping} />
-        <p onMouseEnter={() => setIsShown(true)}>Basket (4)</p>
+        <p onMouseEnter={() => setIsShown(true)}>Basket ({cart.length})</p>
         {isShown && <MiniCart setShown={setIsShown} />}
         <form onSubmit={onFormSubmit}>
           <input
@@ -56,4 +58,11 @@ const Header = () => {
   );
 };
 
-export default Header;
+Header.propTypes = {
+  cart: PropTypes.array.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  cart: state.products.cart,
+});
+export default connect(mapStateToProps)(Header);

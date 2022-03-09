@@ -1,15 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './ShoppingCart.scss';
 import ShoppingItem from '../ShoppingItem/ShoppingItem';
 import ShippingWrapper from '../ShippingWrapper/ShippingWrapper';
 import Shipping from '../Shipping/Shipping';
 import Payment from '../Payment/Payment';
+import EmptyCart from '../EmptyCart/EmptyCart';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
 const ShoppingCart = ({ products }) => {
+  if (products.length === 0) {
+    return <EmptyCart />;
+  }
   return (
     <div className='shopping-container'>
       <h1>Your Shopping Bag</h1>
@@ -33,7 +38,7 @@ const ShoppingCart = ({ products }) => {
           </Col>
         </Row>
         <Row>
-          {products.items.map((product) => {
+          {products.map((product) => {
             return <ShoppingItem key={product.id} product={product} />;
           })}
         </Row>
@@ -48,8 +53,12 @@ const ShoppingCart = ({ products }) => {
   );
 };
 
+ShoppingCart.propTypes = {
+  products: PropTypes.array.isRequired,
+};
+
 const mapStateToProps = (state) => ({
-  products: state.products,
+  products: state.products.cart,
 });
 
 export default connect(mapStateToProps)(ShoppingCart);

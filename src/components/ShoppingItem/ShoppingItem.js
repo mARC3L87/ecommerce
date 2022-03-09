@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { removeFromCart } from '../../redux/actions/productActions';
 import '../ShoppingItem/ShoppingItem.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const ShoppingItem = ({ product }) => {
+const ShoppingItem = ({ product, removeFromCart }) => {
   const [count, setCount] = useState(0);
 
   const onCount = (e) => {
     setCount(e.target.value);
   };
+
   return (
     <Container>
       <Row bsPrefix='row border-bottom'>
@@ -32,8 +36,11 @@ const ShoppingItem = ({ product }) => {
               <input type='text' value={count} onChange={onCount} />
               <button className='btn btn-plus'>+</button>
             </div>
-            <p>$ 99,98</p>
-            <div className='close'></div>
+            <p>${product.price.current_price}</p>
+            <div
+              onClick={() => removeFromCart(product.id)}
+              className='close'
+            ></div>
           </div>
         </Col>
       </Row>
@@ -41,4 +48,8 @@ const ShoppingItem = ({ product }) => {
   );
 };
 
-export default ShoppingItem;
+ShoppingItem.propTypes = {
+  product: PropTypes.object.isRequired,
+};
+
+export default connect(null, { removeFromCart })(ShoppingItem);

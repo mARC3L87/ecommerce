@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { removeFromCart } from '../../redux/actions/productActions';
+import { removeFromCart, countTotal } from '../../redux/actions/productActions';
 import './MiniCartItem.scss';
 
-const MiniCartItem = ({ item, removeFromCart }) => {
-  console.log(item);
+const MiniCartItem = ({ item, removeFromCart, countTotal }) => {
+  const remove = () => {
+    removeFromCart(item.id);
+    countTotal();
+  };
   return (
     <div className='mini-cart-item'>
       <div className='img-cart-details'>
@@ -15,10 +19,15 @@ const MiniCartItem = ({ item, removeFromCart }) => {
       </div>
       <div className='price-details'>
         <p className='price'>{item.price.current_price}</p>
-        <div onClick={() => removeFromCart(item.id)} className='close'></div>
+        <div onClick={remove} className='close'></div>
       </div>
     </div>
   );
 };
 
-export default connect(null, { removeFromCart })(MiniCartItem);
+MiniCartItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
+};
+
+export default connect(null, { removeFromCart, countTotal })(MiniCartItem);
