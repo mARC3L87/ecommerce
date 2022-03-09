@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeFromCart } from '../../redux/actions/productActions';
 import './MiniCartItem.scss';
 
-const MiniCartItem = ({ item }) => {
+const MiniCartItem = ({ item, removeFromCart }) => {
   console.log(item);
   return (
     <div className='mini-cart-item'>
@@ -13,10 +15,10 @@ const MiniCartItem = ({ item }) => {
       </div>
       <div className='price-details'>
         <p className='price'>{item.price.current_price}</p>
-        <div className='close'></div>
+        <div onClick={() => removeFromCart(item.id)} className='close'></div>
       </div>
     </div>
   );
 };
 
-export default MiniCartItem;
+export default connect(null, { removeFromCart })(MiniCartItem);

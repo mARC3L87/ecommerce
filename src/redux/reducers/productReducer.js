@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { ADD_TO_CART } from '../actions/types';
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
 
 initialState.cart = [];
 
@@ -15,6 +15,11 @@ export default (state = initialState, action) => {
             ...state.items.filter((item) => item.id === action.payload),
           ])
         ),
+      };
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
       };
     default:
       return state;
