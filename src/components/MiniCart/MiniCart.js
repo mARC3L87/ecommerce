@@ -9,8 +9,7 @@ import MiniCartCheck from '../MiniCartCheck/MiniCartCheck';
 const MiniCart = ({ setShown, cart, countTotal }) => {
   useEffect(() => {
     countTotal();
-    console.log('set');
-  }, []);
+  }, [countTotal]);
   return (
     <div onMouseLeave={() => setShown(false)} className='minicart'>
       {cart.map((item) => (

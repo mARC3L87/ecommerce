@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { countTotal } from '../../redux/actions/productActions';
 import { useNavigate } from 'react-router-dom';
+import { parsePrice } from '../../utils/utils';
 import './MiniCartCheck.scss';
 
 const MiniCartCheck = ({ total }) => {
-  console.log(total);
   const navigate = useNavigate();
   const checkout = () => {
     navigate('/shoppingcart');
@@ -15,7 +16,7 @@ const MiniCartCheck = ({ total }) => {
       <div className='subtotal'>
         <p>Shipping: $ 15,00</p>
         <p>
-          Subtotal: <span>$ {total}</span>
+          Subtotal: <span>$ {parsePrice(total)}</span>
         </p>
       </div>
       <button onClick={checkout} className='btn btn-checkout'>
@@ -23,6 +24,10 @@ const MiniCartCheck = ({ total }) => {
       </button>
     </div>
   );
+};
+
+MiniCartCheck.propTypes = {
+  total: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

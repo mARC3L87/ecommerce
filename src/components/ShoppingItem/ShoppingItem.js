@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { removeFromCart } from '../../redux/actions/productActions';
+import { removeFromCart, countTotal } from '../../redux/actions/productActions';
+import { parsePrice } from '../../utils/utils';
 import '../ShoppingItem/ShoppingItem.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const ShoppingItem = ({ product, removeFromCart }) => {
+const ShoppingItem = ({ product, removeFromCart, countTotal }) => {
   const [count, setCount] = useState(0);
 
   const onCount = (e) => {
     setCount(e.target.value);
   };
 
+  const remove = () => {
+    removeFromCart(product.id);
+    countTotal();
+  };
   return (
     <Container>
       <Row bsPrefix='row border-bottom'>
@@ -36,11 +41,8 @@ const ShoppingItem = ({ product, removeFromCart }) => {
               <input type='text' value={count} onChange={onCount} />
               <button className='btn btn-plus'>+</button>
             </div>
-            <p>${product.price.current_price}</p>
-            <div
-              onClick={() => removeFromCart(product.id)}
-              className='close'
-            ></div>
+            <p>${parsePrice(product.price.current_price)}</p>
+            <div onClick={remove} className='close'></div>
           </div>
         </Col>
       </Row>
@@ -50,6 +52,8 @@ const ShoppingItem = ({ product, removeFromCart }) => {
 
 ShoppingItem.propTypes = {
   product: PropTypes.object.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
+  countTotal: PropTypes.func.isRequired,
 };
 
-export default connect(null, { removeFromCart })(ShoppingItem);
+export default connect(null, { removeFromCart, countTotal })(ShoppingItem);

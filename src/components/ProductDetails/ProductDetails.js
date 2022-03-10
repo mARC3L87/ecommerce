@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { parsePrice } from '../../utils/utils';
 import { addToCart } from '../../redux/actions/productActions';
 import './ProductDetails.scss';
 
@@ -17,7 +18,10 @@ const ProductDetails = ({ products, filterProduct, addTo }) => {
       <div className='detail-info'>
         <p className='detail-name'>{product.product_name}</p>
         <p className='detail-id'>Product number: {product.id}</p>
-        <p className='detail-price'>{`${products.currency}${product.price.current_price}`}</p>
+        <p className='detail-price'>
+          {products.currency}
+          {parsePrice(product.price.current_price)}
+        </p>
         <p className='detail-description'>{product.description}</p>
       </div>
       <div className='detail-sizes'>

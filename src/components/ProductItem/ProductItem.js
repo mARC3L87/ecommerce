@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { parsePrice } from '../../utils/utils';
 import './ProductItem.scss';
 
 const ProductItem = ({ item, currency }) => {
@@ -16,7 +17,7 @@ const ProductItem = ({ item, currency }) => {
       </div>
       <p className='product-name'>{item.product_name}</p>
       <p className='product-price'>
-        {currency} {item.price.current_price}
+        {currency} {parsePrice(item.price.current_price)}
       </p>
     </div>
   );
