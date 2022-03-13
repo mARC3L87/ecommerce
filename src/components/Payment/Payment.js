@@ -8,7 +8,7 @@ const Payment = ({ total }) => {
     <div className='payment-container'>
       <h1>PAYMENT OPTIONS</h1>
       <div className='subtotal-box'>
-        <p>Subtotal: ${parsePrice(`${total}` - 15)}</p>
+        <p>Subtotal: ${parsePrice(total)}</p>
         <p>Shipping: $15.00</p>
         <p>Total: ${parsePrice(total)}</p>
       </div>

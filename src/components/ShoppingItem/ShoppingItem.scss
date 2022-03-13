@@ -19,6 +19,10 @@
     font-weight: bold;
   }
 }
+.product-size {
+  display: flex;
+  flex-direction: column;
+}
 .qty-box {
   display: flex;
   input[type='text'] {

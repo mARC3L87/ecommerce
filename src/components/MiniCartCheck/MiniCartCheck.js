@@ -14,7 +14,7 @@ const MiniCartCheck = ({ total }) => {
   return (
     <div className='checkout'>
       <div className='subtotal'>
-        <p>Shipping: $ 15,00</p>
+        <p>Shipping: $ 15.00</p>
         <p>
           Subtotal: <span>$ {parsePrice(total)}</span>
         </p>
@@ -27,7 +27,7 @@ const MiniCartCheck = ({ total }) => {
 };
 
 MiniCartCheck.propTypes = {
-  total: PropTypes.number.isRequired,
+  // total: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

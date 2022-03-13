@@ -1,8 +1,14 @@
 import initialState from './initialState';
-import { ADD_TO_CART, REMOVE_FROM_CART, COUNT_TOTAL } from '../actions/types';
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  COUNT_TOTAL,
+  PICK_SIZE,
+} from '../actions/types';
 
 initialState.cart = [];
 initialState.total = [];
+initialState.picked = [];
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initialState, action) => {
@@ -31,6 +37,20 @@ export default (state = initialState, action) => {
             .reduce((accumulator, current) => {
               return accumulator + current;
             }, 0) + state.shipping,
+      };
+    case PICK_SIZE:
+      return {
+        ...state,
+        picked: [
+          ...state.items,
+          ...state.items.map((item) =>
+            item.id === action.payload.id
+              ? (item.pickedSize = Array.from(
+                  new Set([...item.pickedSize, action.payload.size])
+                ))
+              : ''
+          ),
+        ],
       };
     default:
       return state;

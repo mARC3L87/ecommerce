@@ -2,14 +2,17 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { parsePrice } from '../../utils/utils';
-import { addToCart } from '../../redux/actions/productActions';
+import { addToCart, pickSize } from '../../redux/actions/productActions';
 import './ProductDetails.scss';
 
-const ProductDetails = ({ products, filterProduct, addTo }) => {
+const ProductDetails = ({ products, filterProduct, addTo, pick }) => {
   console.log(products);
   let param = useParams();
   const product = filterProduct(products.items, param.id);
-
+  const onHandleClick = (e) => {
+    // console.log(e);
+    pick(product.id, e.target.innerHTML);
+  };
   return (
     <div className='detail-container'>
       <div className='detail-img-box'>
@@ -27,8 +30,12 @@ const ProductDetails = ({ products, filterProduct, addTo }) => {
       <div className='detail-sizes'>
         <p className='size'>Size</p>
         <ul>
-          {product.sizes.map((size) => {
-            return <li key={size}>{size}</li>;
+          {product.sizes.map((size, index) => {
+            return (
+              <li onClick={onHandleClick} key={size}>
+                {size}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -47,6 +54,7 @@ const mapDispatchToProps = (dispatch) => ({
   filterProduct: (products, filterId) =>
     products.find((product) => product.id === parseInt(filterId)),
   addTo: (id) => dispatch(addToCart(id)),
+  pick: (id, size) => dispatch(pickSize(id, size)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

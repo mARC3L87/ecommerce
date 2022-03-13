@@ -12,6 +12,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'men',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -22,6 +23,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'men',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -32,6 +34,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'women',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -42,6 +45,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'women',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -52,6 +56,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'women',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -62,6 +67,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'men',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -72,6 +78,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'women',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -82,6 +89,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'women',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -92,6 +100,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'men',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',
@@ -102,6 +111,7 @@ const products = {
       image: 'https://picsum.photos/250/150?random=1',
       price: { current_price: 10.5, old_price: 7.0 },
       sizes: ['S', 'M', 'L'],
+      pickedSize: [],
       category: 'men',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.',

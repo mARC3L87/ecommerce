@@ -35,7 +35,12 @@ const ShoppingItem = ({ product, removeFromCart, countTotal }) => {
         </Col>
         <Col sm={6} style={{ display: 'flex', alignItems: 'center' }}>
           <div className='col-2'>
-            <p>M</p>
+            <div className='product-size'>
+              {product.pickedSize.map((size) => {
+                return <p key={size}>{size}</p>;
+              })}
+            </div>
+
             <div className='qty-box'>
               <button className='btn btn-minus'>-</button>
               <input type='text' value={count} onChange={onCount} />
