@@ -4,6 +4,9 @@ import {
   REMOVE_FROM_CART,
   COUNT_TOTAL,
   PICK_SIZE,
+  INCREMENT,
+  DECREMENT,
+  ON_COUNT,
 } from '../actions/types';
 
 initialState.cart = [];
@@ -33,7 +36,7 @@ export default (state = initialState, action) => {
         ...state,
         total:
           state.cart
-            .map((item) => item.price.current_price)
+            .map((item) => item.price.current_price * item.qty)
             .reduce((accumulator, current) => {
               return accumulator + current;
             }, 0) + state.shipping,
@@ -48,6 +51,38 @@ export default (state = initialState, action) => {
               ? (item.pickedSize = Array.from(
                   new Set([...item.pickedSize, action.payload.size])
                 ))
+              : ''
+          ),
+        ],
+      };
+    case INCREMENT:
+      return {
+        ...state,
+        picked: [
+          ...state.items,
+          state.items.map((item) =>
+            item.id === action.payload ? (item.qty += 1) : ''
+          ),
+        ],
+      };
+    case DECREMENT:
+      return {
+        ...state,
+        picked: [
+          ...state.items,
+          state.items.map((item) =>
+            item.id === action.payload ? (item.qty -= 1) : ''
+          ),
+        ],
+      };
+    case ON_COUNT:
+      return {
+        ...state,
+        picked: [
+          ...state.items,
+          state.items.map((item) =>
+            item.id === action.payload.id
+              ? (item.qty = action.payload.value)
               : ''
           ),
         ],

@@ -1,18 +1,46 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { removeFromCart, countTotal } from '../../redux/actions/productActions';
+import {
+  removeFromCart,
+  countTotal,
+  increment,
+  decrement,
+  onCount,
+} from '../../redux/actions/productActions';
 import { parsePrice } from '../../utils/utils';
 import '../ShoppingItem/ShoppingItem.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const ShoppingItem = ({ product, removeFromCart, countTotal }) => {
-  const [count, setCount] = useState(0);
+const ShoppingItem = ({
+  product,
+  removeFromCart,
+  countTotal,
+  increment,
+  decrement,
+  onCount,
+}) => {
+  const [count, setCount] = useState(product.qty);
 
-  const onCount = (e) => {
-    setCount(e.target.value);
+  const onChangeCount = (e) => {
+    onCount(product.id, parseInt(e.target.value));
+    setCount(product.qty);
+    countTotal();
+    console.log(typeof e.target.value);
+  };
+
+  const increase = () => {
+    increment(product.id);
+    countTotal();
+    setCount(product.qty);
+  };
+
+  const decrease = () => {
+    decrement(product.id);
+    countTotal();
+    setCount(product.qty);
   };
 
   const remove = () => {
@@ -42,9 +70,13 @@ const ShoppingItem = ({ product, removeFromCart, countTotal }) => {
             </div>
 
             <div className='qty-box'>
-              <button className='btn btn-minus'>-</button>
-              <input type='text' value={count} onChange={onCount} />
-              <button className='btn btn-plus'>+</button>
+              <button onClick={() => decrease()} className='btn btn-minus'>
+                -
+              </button>
+              <input type='number' value={count} onChange={onChangeCount} />
+              <button onClick={() => increase()} className='btn btn-plus'>
+                +
+              </button>
             </div>
             <p>${parsePrice(product.price.current_price)}</p>
             <div onClick={remove} className='close'></div>
@@ -59,6 +91,14 @@ ShoppingItem.propTypes = {
   product: PropTypes.object.isRequired,
   removeFromCart: PropTypes.func.isRequired,
   countTotal: PropTypes.func.isRequired,
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired,
 };
 
-export default connect(null, { removeFromCart, countTotal })(ShoppingItem);
+export default connect(null, {
+  removeFromCart,
+  countTotal,
+  increment,
+  decrement,
+  onCount,
+})(ShoppingItem);

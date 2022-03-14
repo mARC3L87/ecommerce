@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { parsePrice } from '../../utils/utils';
 import './Payment.scss';
 
-const Payment = ({ total }) => {
+const Payment = ({ total, shipping }) => {
   return (
     <div className='payment-container'>
       <h1>PAYMENT OPTIONS</h1>
       <div className='subtotal-box'>
-        <p>Subtotal: ${parsePrice(total)}</p>
-        <p>Shipping: $15.00</p>
+        <p>Subtotal: ${parsePrice(total - shipping)}</p>
+        <p>Shipping: ${parsePrice(shipping)}</p>
         <p>Total: ${parsePrice(total)}</p>
       </div>
       <div className='payment-box'>
@@ -27,5 +27,6 @@ const Payment = ({ total }) => {
 
 const mapStateToProps = (state) => ({
   total: state.products.total,
+  shipping: state.products.shipping,
 });
 export default connect(mapStateToProps)(Payment);

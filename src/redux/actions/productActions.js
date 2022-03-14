@@ -1,4 +1,12 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, COUNT_TOTAL, PICK_SIZE } from './types';
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  COUNT_TOTAL,
+  PICK_SIZE,
+  INCREMENT,
+  DECREMENT,
+  ON_COUNT,
+} from './types';
 
 export const addToCart = (id) => (dispatch) => {
   dispatch({
@@ -24,5 +32,26 @@ export const pickSize = (id, size) => (dispatch) => {
   dispatch({
     type: PICK_SIZE,
     payload: { id, size },
+  });
+};
+
+export const increment = (id) => (dispatch) => {
+  dispatch({
+    type: INCREMENT,
+    payload: id,
+  });
+};
+
+export const decrement = (id) => (dispatch) => {
+  dispatch({
+    type: DECREMENT,
+    payload: id,
+  });
+};
+
+export const onCount = (id, value) => (dispatch) => {
+  dispatch({
+    type: ON_COUNT,
+    payload: { id, value },
   });
 };

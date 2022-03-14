@@ -57,6 +57,15 @@
         width: 30px;
         height: 30px;
         text-align: center;
+        cursor: pointer;
+      }
+      .pick {
+        background-color: $orange;
+        color: $light;
+      }
+      .unpick {
+        background-color: $light;
+        color: $light-dark;
       }
     }
   }

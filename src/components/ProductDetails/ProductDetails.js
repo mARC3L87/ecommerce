@@ -9,9 +9,17 @@ const ProductDetails = ({ products, filterProduct, addTo, pick }) => {
   console.log(products);
   let param = useParams();
   const product = filterProduct(products.items, param.id);
+
   const onHandleClick = (e) => {
-    // console.log(e);
     pick(product.id, e.target.innerHTML);
+  };
+
+  const add = () => {
+    if (product.pickedSize.length === 0) {
+      console.log('Choose size');
+    } else {
+      addTo(product.id);
+    }
   };
   return (
     <div className='detail-container'>
@@ -32,14 +40,21 @@ const ProductDetails = ({ products, filterProduct, addTo, pick }) => {
         <ul>
           {product.sizes.map((size, index) => {
             return (
-              <li onClick={onHandleClick} key={size}>
-                {size}
-              </li>
+              <div key={index}>
+                <li
+                  className={
+                    product.pickedSize.includes(size) ? 'pick' : 'unpick'
+                  }
+                  onClick={onHandleClick}
+                >
+                  {size}
+                </li>
+              </div>
             );
           })}
         </ul>
       </div>
-      <button onClick={() => addTo(product.id)} className='btn btn-add'>
+      <button onClick={add} className='btn btn-add'>
         ADD TO CART
       </button>
     </div>

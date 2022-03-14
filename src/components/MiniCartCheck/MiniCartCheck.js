@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { parsePrice } from '../../utils/utils';
 import './MiniCartCheck.scss';
 
-const MiniCartCheck = ({ total }) => {
+const MiniCartCheck = ({ total, shipping }) => {
   const navigate = useNavigate();
   const checkout = () => {
     navigate('/shoppingcart');
@@ -14,7 +14,7 @@ const MiniCartCheck = ({ total }) => {
   return (
     <div className='checkout'>
       <div className='subtotal'>
-        <p>Shipping: $ 15.00</p>
+        <p>Shipping: $ {parsePrice(shipping)}</p>
         <p>
           Subtotal: <span>$ {parsePrice(total)}</span>
         </p>
@@ -32,5 +32,6 @@ MiniCartCheck.propTypes = {
 
 const mapStateToProps = (state) => ({
   total: state.products.total,
+  shipping: state.products.shipping,
 });
 export default connect(mapStateToProps, { countTotal })(MiniCartCheck);
