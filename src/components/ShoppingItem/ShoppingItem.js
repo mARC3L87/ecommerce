@@ -8,7 +8,7 @@ import {
   decrement,
   onCount,
 } from '../../redux/actions/productActions';
-import { parsePrice } from '../../utils/utils';
+import { parsePrice, countPrice } from '../../utils/utils';
 import '../ShoppingItem/ShoppingItem.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -78,7 +78,10 @@ const ShoppingItem = ({
                 +
               </button>
             </div>
-            <p>${parsePrice(product.price.current_price)}</p>
+            <p>
+              $
+              {parsePrice(countPrice(product.price.current_price, product.qty))}
+            </p>
             <div onClick={remove} className='close'></div>
           </div>
         </Col>

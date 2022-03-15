@@ -30,6 +30,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
+        picked: state.items.filter((item) =>
+          item.id !== action.payload ? (item.pickedSize = []) : ''
+        ),
       };
     case COUNT_TOTAL:
       return {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { removeFromCart, countTotal } from '../../redux/actions/productActions';
-import { parsePrice } from '../../utils/utils';
+import { parsePrice, countPrice } from '../../utils/utils';
 import './MiniCartItem.scss';
 
 const MiniCartItem = ({ item, removeFromCart, countTotal }) => {
@@ -19,7 +19,9 @@ const MiniCartItem = ({ item, removeFromCart, countTotal }) => {
         <p>{item.product_name}</p>
       </div>
       <div className='price-details'>
-        <p className='price'>{parsePrice(item.price.current_price)}</p>
+        <p className='price'>
+          {parsePrice(countPrice(item.price.current_price, item.qty))}
+        </p>
         <div onClick={remove} className='close'></div>
       </div>
     </div>

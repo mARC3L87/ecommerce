@@ -4,3 +4,7 @@ export const parsePrice = (price) => {
   }
   return price.toFixed(2);
 };
+
+export const countPrice = (price, qty) => {
+  return price * qty;
+};
