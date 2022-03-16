@@ -5,3 +5,4 @@ export const PICK_SIZE = 'PICK_SIZE';
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const ON_COUNT = 'ON_COUNT';
+export const ORDER_CART = 'ORDER_CART';

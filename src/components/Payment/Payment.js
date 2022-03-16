@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { parsePrice } from '../../utils/utils';
 import './Payment.scss';
 
-const Payment = ({ total, shipping }) => {
+const Payment = ({ total, shipping, formData, option }) => {
+  console.log(formData);
+  console.log(option);
   return (
     <div className='payment-container'>
       <h1>PAYMENT OPTIONS</h1>

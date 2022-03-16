@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './ShoppingCart.scss';
@@ -12,6 +12,9 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
 const ShoppingCart = ({ products }) => {
+  const [formData, setFormData] = useState();
+  const [option, setOption] = useState('DHL');
+
   if (products.length === 0) {
     return <EmptyCart />;
   }
@@ -43,10 +46,10 @@ const ShoppingCart = ({ products }) => {
           })}
         </Row>
         <ShippingWrapper>
-          <Shipping />
+          <Shipping setFormData={setFormData} setOption={setOption} />
         </ShippingWrapper>
         <ShippingWrapper>
-          <Payment />
+          <Payment formData={formData} option={option} />
         </ShippingWrapper>
       </Container>
     </div>

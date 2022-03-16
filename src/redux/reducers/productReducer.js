@@ -7,6 +7,7 @@ import {
   INCREMENT,
   DECREMENT,
   ON_COUNT,
+  ORDER_CART,
 } from '../actions/types';
 
 initialState.cart = [];
@@ -89,6 +90,11 @@ export default (state = initialState, action) => {
               : ''
           ),
         ],
+      };
+    case ORDER_CART:
+      return {
+        ...state,
+        formValues: action.payload,
       };
     default:
       return state;

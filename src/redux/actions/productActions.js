@@ -6,6 +6,7 @@ import {
   INCREMENT,
   DECREMENT,
   ON_COUNT,
+  ORDER_CART,
 } from './types';
 
 export const addToCart = (id) => (dispatch) => {
@@ -53,5 +54,12 @@ export const onCount = (id, value) => (dispatch) => {
   dispatch({
     type: ON_COUNT,
     payload: { id, value },
+  });
+};
+
+export const orderCart = (form) => (dispatch) => {
+  dispatch({
+    type: ORDER_CART,
+    payload: form,
   });
 };

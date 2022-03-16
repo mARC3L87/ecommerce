@@ -5,6 +5,7 @@ const products = {
     { id: 'men', name: 'Men' },
     { id: 'women', name: 'Women' },
   ],
+  delivery: ['DHL', 'DPD', 'UPS', 'INPOST'],
   items: [
     {
       id: 1,
