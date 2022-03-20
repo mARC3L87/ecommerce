@@ -5,7 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Shipping = ({ setFormData, delivery, setOption }) => {
+const Shipping = ({ setFormData, delivery, setDeliveryOption }) => {
+  const [selected, setSelected] = useState('DHL');
   const [formInputs, setFormInputs] = useState({
     firstname: '',
     lastname: '',
@@ -15,12 +16,12 @@ const Shipping = ({ setFormData, delivery, setOption }) => {
     phone: '',
     email: '',
   });
-  const [selected, setSelected] = useState('');
 
   useEffect(() => {
+    setDeliveryOption(selected);
     setFormData(formInputs);
-    setOption(selected);
-  }, [formInputs, setFormData, selected, setOption]);
+  }, [formInputs, setFormData, selected, setDeliveryOption]);
+
   const { firstname, lastname, address, city, postal, phone, email } =
     formInputs;
 
@@ -39,14 +40,13 @@ const Shipping = ({ setFormData, delivery, setOption }) => {
           <Col xs={12}>
             <div className='delivery flexible'>
               <label htmlFor='delivery'>SELECT DELIVERY METHOD</label>
-              <select id='delivery'>
+              <select
+                id='delivery'
+                onChange={(e) => setSelected(e.target.value)}
+              >
                 {delivery.map((option, index) => {
                   return (
-                    <option
-                      onClick={setSelected(option)}
-                      key={index}
-                      value={option}
-                    >
+                    <option key={index} value={option}>
                       {option}
                     </option>
                   );

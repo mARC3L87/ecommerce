@@ -13,7 +13,7 @@ import Col from 'react-bootstrap/Col';
 
 const ShoppingCart = ({ products }) => {
   const [formData, setFormData] = useState();
-  const [option, setOption] = useState('DHL');
+  const [deliveryOption, setDeliveryOption] = useState();
 
   if (products.length === 0) {
     return <EmptyCart />;
@@ -46,10 +46,13 @@ const ShoppingCart = ({ products }) => {
           })}
         </Row>
         <ShippingWrapper>
-          <Shipping setFormData={setFormData} setOption={setOption} />
+          <Shipping
+            setFormData={setFormData}
+            setDeliveryOption={setDeliveryOption}
+          />
         </ShippingWrapper>
         <ShippingWrapper>
-          <Payment formData={formData} option={option} />
+          <Payment formData={formData} deliveryOption={deliveryOption} />
         </ShippingWrapper>
       </Container>
     </div>

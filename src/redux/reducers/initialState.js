@@ -6,6 +6,7 @@ const products = {
     { id: 'women', name: 'Women' },
   ],
   delivery: ['DHL', 'DPD', 'UPS', 'INPOST'],
+  payment: ['CREDIT CARD', 'DEBIT CARD', 'BANK TRANSFER'],
   items: [
     {
       id: 1,

@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { orderCart } from '../../redux/actions/productActions';
 import { parsePrice } from '../../utils/utils';
 import './Payment.scss';
 
-const Payment = ({ total, shipping, formData, option }) => {
-  console.log(formData);
-  console.log(option);
+const Payment = ({
+  total,
+  shipping,
+  formData,
+  deliveryOption,
+  payment,
+  orderCart,
+}) => {
+  const [paymentMethod, setPaymentMethod] = useState('CREDIT CARD');
+
+  const form = {
+    formData,
+    deliveryOption,
+    paymentMethod,
+    total,
+  };
+
+  const order = () => {
+    orderCart(form);
+  };
   return (
     <div className='payment-container'>
       <h1>PAYMENT OPTIONS</h1>
@@ -16,12 +34,21 @@ const Payment = ({ total, shipping, formData, option }) => {
       </div>
       <div className='payment-box'>
         <label htmlFor='payment-method'>SELECT PAYMENT METHOD</label>
-        <select id='payment-method'>
-          <option value='credit'>Credit Card</option>
-          <option value='debit'>Debit Card</option>
-          <option value='transfer'>Bank Transfer</option>
+        <select
+          id='payment-method'
+          onChange={(e) => setPaymentMethod(e.target.value)}
+        >
+          {payment.map((option, index) => {
+            return (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            );
+          })}
         </select>
-        <button className='btn btn-order'>ORDER NOW</button>
+        <button onClick={order} className='btn btn-order'>
+          ORDER NOW
+        </button>
       </div>
     </div>
   );
@@ -30,5 +57,6 @@ const Payment = ({ total, shipping, formData, option }) => {
 const mapStateToProps = (state) => ({
   total: state.products.total,
   shipping: state.products.shipping,
+  payment: state.products.payment,
 });
-export default connect(mapStateToProps)(Payment);
+export default connect(mapStateToProps, { orderCart })(Payment);
