@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { orderCart } from '../../redux/actions/productActions';
 import { parsePrice } from '../../utils/utils';
@@ -20,9 +21,10 @@ const Payment = ({
     paymentMethod,
     total,
   };
-
+  const navigate = useNavigate();
   const order = () => {
     orderCart(form);
+    navigate('/shoppingcart/summary');
   };
   return (
     <div className='payment-container'>
