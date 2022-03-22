@@ -12,6 +12,7 @@ import Products from '../Products/Products';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import Footer from '../Footer/Footer,';
 import ShoppingLayout from '../ShoppingLayout/ShoppingLayout';
+import NotFound from '../NotFound/NotFound';
 import Summary from '../Summary/Summary';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,6 +34,7 @@ const App = () => {
             <Route path='shoppingcart' element={<ShoppingCart />} />
             <Route path='shoppingcart/summary' element={<Summary />} />
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
       </Router>

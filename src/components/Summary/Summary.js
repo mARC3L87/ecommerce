@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -18,6 +20,14 @@ const Summary = ({
     },
   },
 }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate('/shoppingcart');
+    }
+  }, [cart, navigate]);
+
   return (
     <div className='summary-container'>
       <h1>Thank you for your order.</h1>
@@ -32,9 +42,9 @@ const Summary = ({
                     <p>
                       <span>Name:</span> {product.product_name}
                     </p>
-                    {product.pickedSize.map((pick) => {
+                    {product.pickedSize.map((pick, index) => {
                       return (
-                        <p>
+                        <p key={index}>
                           <span>Size:</span> {pick}
                         </p>
                       );
@@ -85,6 +95,10 @@ const Summary = ({
       </Container>
     </div>
   );
+};
+
+Summary.propTypes = {
+  products: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

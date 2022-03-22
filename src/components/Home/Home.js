@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import ProductItem from '../ProductItem/ProductItem';
 
 const Home = ({ products }) => {
-  console.log(products);
   return (
     <div className='home-container'>
       <h1>T-Shirts</h1>

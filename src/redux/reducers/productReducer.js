@@ -13,6 +13,7 @@ import {
 initialState.cart = [];
 initialState.total = [];
 initialState.picked = [];
+initialState.formValues = {};
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initialState, action) => {
@@ -96,6 +97,7 @@ export default (state = initialState, action) => {
         ...state,
         formValues: action.payload,
       };
+
     default:
       return state;
   }

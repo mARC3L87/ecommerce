@@ -25,19 +25,27 @@ const ShoppingItem = ({
   const [count, setCount] = useState(product.qty);
 
   const onChangeCount = (e) => {
-    onCount(product.id, parseInt(e.target.value));
-    setCount(product.qty);
-    countTotal();
-    console.log(typeof e.target.value);
+    const re = /\b([1-9]|10)\b/;
+    if (re.test(e.target.value) || e.target.value === '') {
+      onCount(product.id, parseInt(e.target.value) || '');
+      setCount(product.qty);
+      countTotal();
+    }
   };
 
   const increase = () => {
+    if (product.qty >= 10) {
+      return;
+    }
     increment(product.id);
     countTotal();
     setCount(product.qty);
   };
 
   const decrease = () => {
+    if (product.qty <= 1) {
+      return;
+    }
     decrement(product.id);
     countTotal();
     setCount(product.qty);
@@ -73,7 +81,7 @@ const ShoppingItem = ({
               <button onClick={() => decrease()} className='btn btn-minus'>
                 -
               </button>
-              <input type='number' value={count} onChange={onChangeCount} />
+              <input type='text' value={count} onChange={onChangeCount} />
               <button onClick={() => increase()} className='btn btn-plus'>
                 +
               </button>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { orderCart } from '../../redux/actions/productActions';
@@ -14,7 +15,6 @@ const Payment = ({
   orderCart,
 }) => {
   const [paymentMethod, setPaymentMethod] = useState('CREDIT CARD');
-
   const form = {
     formData,
     deliveryOption,
@@ -23,8 +23,22 @@ const Payment = ({
   };
   const navigate = useNavigate();
   const order = () => {
-    orderCart(form);
-    navigate('/shoppingcart/summary');
+    const { firstname, lastname, address, city, postal, email, phone } =
+      formData;
+    if (
+      firstname === '' ||
+      lastname === '' ||
+      address === '' ||
+      city === '' ||
+      postal === '' ||
+      email === '' ||
+      phone === ''
+    ) {
+      console.log('All fields are required.');
+    } else {
+      orderCart(form);
+      navigate('/shoppingcart/summary');
+    }
   };
   return (
     <div className='payment-container'>
@@ -54,6 +68,15 @@ const Payment = ({
       </div>
     </div>
   );
+};
+
+Payment.propTypes = {
+  total: PropTypes.number.isRequired,
+  shipping: PropTypes.number.isRequired,
+  formData: PropTypes.object,
+  deliveryOption: PropTypes.string,
+  payment: PropTypes.array.isRequired,
+  orderCart: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

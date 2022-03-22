@@ -6,7 +6,6 @@ import { addToCart, pickSize } from '../../redux/actions/productActions';
 import './ProductDetails.scss';
 
 const ProductDetails = ({ products, filterProduct, addTo, pick }) => {
-  console.log(products);
   let param = useParams();
   const product = filterProduct(products.items, param.id);
 
