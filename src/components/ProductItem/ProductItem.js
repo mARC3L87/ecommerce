@@ -23,4 +23,4 @@ const ProductItem = ({ item, currency }) => {
   );
 };
 
-export default ProductItem;
+export default React.memo(ProductItem);

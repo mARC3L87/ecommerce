@@ -30,4 +30,4 @@ const mapStateToProps = (state) => ({
   products: state.products,
 });
 
-export default connect(mapStateToProps)(Home);
+export default React.memo(connect(mapStateToProps)(Home));
