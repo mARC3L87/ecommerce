@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../MiniCart/MiniCart';
+import HamburgerMenu from './HamburgerMenu';
 
 const Header = ({ cart }) => {
   const [search, setSearch] = useState('');
@@ -21,22 +22,25 @@ const Header = ({ cart }) => {
     console.log('Form submitted.', search);
   };
 
+  const menu = (
+    <ul className='header-list'>
+      <Link to='products/men'>
+        <li>Men</li>
+      </Link>
+      <Link to='products/women'>
+        <li>Women</li>
+      </Link>
+      <Link to='about'>
+        <li>About</li>
+      </Link>
+    </ul>
+  );
   return (
     <div className='header-container'>
       <Link className='header-logo' to='/'>
         T-Shirt House
       </Link>
-      <ul className='header-list'>
-        <Link to='products/men'>
-          <li>Men</li>
-        </Link>
-        <Link to='products/women'>
-          <li>Women</li>
-        </Link>
-        <Link to='about'>
-          <li>About</li>
-        </Link>
-      </ul>
+      {menu}
       <div className='basket'>
         <FontAwesomeIcon icon={faCartShopping} />
         <p onMouseEnter={() => setIsShown(true)}>Basket ({cart.length})</p>
@@ -53,6 +57,9 @@ const Header = ({ cart }) => {
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </form>
+        <div className='active'>
+          <HamburgerMenu placement={'end'} menu={menu} />
+        </div>
       </div>
     </div>
   );

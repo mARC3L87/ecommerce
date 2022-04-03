@@ -1,0 +1,23 @@
+@import '../../styles/settings.scss';
+
+.header {
+  justify-content: flex-end;
+  display: flex;
+  margin: 10px;
+}
+.header-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    text-decoration: none;
+    li {
+      font-family: $text-font;
+      font-size: 18px;
+      color: $light-dark;
+      margin: 10px 0;
+    }
+  }
+}

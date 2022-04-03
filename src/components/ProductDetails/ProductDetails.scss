@@ -5,7 +5,7 @@
   align-items: center;
   margin: 80px 0 0;
   .detail-img-box {
-    width: 600px;
+    max-width: 600px;
     img {
       object-fit: cover;
       width: 100%;
